@@ -1,0 +1,23 @@
+/*
+1° - Lista encadeada
+    Para fazer uma agregação sem lista encadeada -> criar um vetor (ex. (int v[10];) cria vetor com 10 posições)    
+    Cada casa de um vetor int possui 4 bytes
+    Se v começa na posição 100 da memoria, v[0] = 100, v[1] = 104, v[2] = 108,v[3] = 112
+    O deslocamento é calculado em endereço base + posição * tipo de dado (v[que é igual a 100] + posição * tipo de dado[4 bytes])
+    def do professor: 
+        {p/ um vetor iniciando na posição v, com cada elemento tendo x bytes em um deslocamento é, o endereço de v[i]
+        (&v[i]) é dado por: &v[i] = v + (i * x). Este mapeamento é conhecido como Acesso Direto}
+    se v fosse um char (1 byte), v[0] = 100, v[1] = 101, v[2] = 102, v[3] = 103
+    
+    Acesso Direto tem o problema que ao não conhecer o tamanho maximo que sera alocado, tentativas de acesso direto em posições invalidas e tacar
+    espaço fora eram problemas comuns. Por isso o Acesso Dinamico começou a ser usado.
+
+    Em uma lista encadeada, cada elemento de um vetor é alocado de forma separada.
+    Na alocação da lista encadeada, terá um cabeçãlho com o endereço do primeiro nó(elemento)
+    e o nó tera o dado e o endereço do proximo nó, no ultimo nó, o endereço do proximo será 0.
+    Para adicionar nós à lista, você começa no cabeçalho -> 1° nó (& do proximo é 0? Não vai para o proximo endereço) -> n° nó (& do proximo 0? Sim, inserir).
+    Caso a lista seja muito grande, irá demorar muito até chegar no ultimo nó, uma solução é incluir o & do ultimo nó no cabeçalho,
+    e atualizar o & do ultimo nó toda vez que adicionar mais um nó
+
+    
+
