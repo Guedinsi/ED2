@@ -42,7 +42,7 @@ private:
     // Esta classe representa cada elemento da lista encadeada.
     class No{
     public:
-        No(int dado) : dado(dado){}
+        No(int dado) : dado(dado), proximo(nullptr){}
         int dado;
         No *proximo;
     };

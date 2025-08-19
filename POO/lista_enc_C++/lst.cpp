@@ -1,3 +1,4 @@
+/*
 #include "lst.h"
 
 // Embora a linguagem C++ permita o uso das bibliotecas padrão do C, como
@@ -176,4 +177,25 @@ bool ListaEncadeada::vazia(){
     // return this->tamanho == 0; // isto é equivalente a:
     return this->tamanho > 0 ? false : true;
 }
+*/
+//Inplementação em aula
+#include "lst.h"
 
+ListaEncadeada::ListaEncadeada(){
+    this->tamanho = 0;
+    this->primeiro = nullptr;
+    this->ultimo = nullptr;  
+}
+
+void ListaEncadeada::inserir(int valor){
+    No* novo = new No(valor);
+
+    if(this->vazia()){
+        this->primeiro = novo;
+    }
+    else{
+        this->ultimo->proximo = novo;
+    }
+            this->ultimo = novo;
+    this->tamanho++;
+}
