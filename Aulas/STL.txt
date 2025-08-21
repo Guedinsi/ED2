@@ -1,0 +1,124 @@
+//#include <iostream>
+/*
+template <typename T>
+T soma_array(T* arr, int n){
+    T soma = 0;
+    for(int i = 0; i < n; i++) {
+        soma += arr[i];
+    }
+    return soma;
+}
+
+int main(){
+    using namespace std;
+
+    int v[] = {3, 4, 1, 6, 2, 0};
+    float u[] = {1.5, 2.4, 1.3};
+    double w[] = {3.1, 5.0, 2.3};
+    unsigned char y[] = {0, 244, 152};
+
+    auto soma_v = soma_array(v, 6);
+    float soma_u = soma_array(u, 3);
+    double soma_w = soma_array<double>(w, 3);
+    int soma_y = soma_array(y, 3);
+
+    cout << "soma_v:" << soma_v << "\n";
+    cout << "soma_u:" << soma_u << "\n";
+    cout << "soma_w:" << soma_w << "\n";
+    cout << "soma_y:" << soma_y << "\n";
+
+
+    return 0;
+}
+*/
+// biblioteca STL vem com varias funções que usam template
+
+/*
+int Max(int a, int b) {
+    if(a >= b){
+        return a;
+    }
+    return b;
+}
+
+float MaxF(float a, float b) {
+    if(a >= b){
+        return a;
+    }
+    return b;
+}
+*/
+/* 
+template<typename T>
+T Max(T a, T b) {
+    if(a >= b){
+        return a;
+    }
+    return b:
+}
+
+// o compilador escolhe o que usar
+
+int main() {
+    int X = 5;
+    int Y = 10;
+    int Z = max(x, y);
+// aqui o compilado irá fazer uma max onde o T é substituido por int
+
+    float fx = 2.5f;
+    float fy = 2.7f;
+    float fz = Max(fx, fy);
+// aqui o compilado irá fazer uma max onde o T é substituido por float
+
+    printf("%d", Z);
+    printf("%f", fz);
+
+    return 0;
+}
+*/
+
+/*
+// não funciona
+void troca (int a, int b) {
+    int aux = b;
+    b = a;
+    a = aux;
+}
+
+int x = 5;
+int y = 7;
+troca (x, y);
+
+// funciona mais é feio
+// explicitamente pega o conteudo das variaveis
+void troca (int* a, int* b) {
+    int aux = *b;
+    *b = *a;
+    *a = aux;
+}
+
+int x = 5;
+int y = 7;
+troca (&x, &y);
+
+// referencia é usada para deixar isso mais bonito
+// usando o & ele passa o proprio objeto como parametro
+// a função espera endereços como parametro, não precisa explicitar os ponteiros
+void troca (int& a, int& b) {
+    int aux = b;
+    b = a;
+    a = aux;
+}
+
+int x = 5;
+int y = 7;
+troca (x, y);
+
+template<typename T>
+void troca(T& a, T& b) {
+    T temp = a;
+    a = b;
+    b = temp;
+}
+*/
+
