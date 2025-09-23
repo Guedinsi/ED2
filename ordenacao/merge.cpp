@@ -1,4 +1,7 @@
 #include <iostream>
+#include <vector>
+#include <string>
+#include "utils.h"
 
 void merge(int *v, int p, int q, int r){
     //0 - Calcular n1 e n2
@@ -39,13 +42,31 @@ void merge(int *v, int p, int q, int r){
     delete[] d;
 }
 
-int main(){
-    int v[] = {1, 7, 9, 0, 5, 8};
-    int p = 0, q = 2, r = 5;
-
-    merge(v, p, q, r);
-    for(int i = 0; i < 6; i++){
-        std::cout << v[i] << ", ";
+void mergeSort(int *v, int e, int d){
+    if(e < d){
+        int m = (e + d)/2;
+        mergeSort(v, e, m);
+        mergeSort(v, m+1, d);
+        merge(v, e, m, d);
     }
-    std::cout << "\n";
+}
+
+int main(int argc, char** argv){
+    // int v[] = {1, 7, 9, 0, 5, 8};
+    // int p = 0, q = 2, r = 5;
+
+    // merge(v, p, q, r);
+    // for(int i = 0; i < 6; i++){
+    //     std::cout << v[i] << ", ";
+    // }
+    // std::cout << "\n";
+
+    using namespace std;
+
+    int n = stoi(argv[1]);
+    
+    vector<int> v = gerar_vetor_aleatorio(n, 99, n * 100);
+    imprimir_vetor(v.data(), n);
+    mergeSort(v.data(), 0, n-1);
+    imprimir_vetor(v.data(), n);
 }
