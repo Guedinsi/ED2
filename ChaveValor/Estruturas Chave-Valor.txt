@@ -1,0 +1,21 @@
+Uma estrutura chave-valor associa um identificador único denominado "chave" a um valor.
+A estrutura tem as seguintes operações:
+->Inserir(chave, valor)
+    *Aloca a chave do valor
+->Buscar(chave)
+    *Retorna o valor fornecido à chave
+->Remover(chave)
+    *Desassocia a chave do valor
+
+Resolução de problemas usando dicionários
+
+Exemplo:
+seja V um vetor com n elementos.
+retorne um vetor contendo apenas os elementos únicos do V, em qualquer ordem
+V = [3, 2, 1, 3, 4, 1, 6, 2] ----> [3, 2, 1, 4, 6]
+Solução: função dedup
+
+Exemplo: dado um vetor V com n inteiros e um inteiro k, retorne um par (a, b) tal que a + b = k.
+
+
+
