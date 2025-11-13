@@ -1,0 +1,94 @@
+Árvore de Busca Binária
+
+Propriedade da árvore de busca binária:
+Para todo nó da árvore,
+    i -> esq -> chave < i -> chave
+    i -> dir -> chave > i -> chave
+Como consequência,
+todos nós da subárvore enraizada
+em i -> esq são menores que i -> chave
+e todos os nós da subárvore enraizada
+em i -> dir são maiores que i -> chave
+
+class NoABB {
+    NoABB* esq;
+    NoABB* dir;
+    int chave;
+    int valor;
+};
+class ABB {
+    NoABB* raiz;
+    void inserir(int chave, int valor);
+    void buscar(int chave);
+    int remover(int chave);
+};
+
+
+
+Buscar
+
+private:
+int buscar(NoABB* n, int chave){
+    if(n == nullptr){
+        return nullptr;
+    }
+
+    if(n->chave == chave){
+        return n;
+    }
+    
+    if(chave < n->chave){
+        return buscar(n->esq, chave);
+        // sei que chave > n->chave
+    }return buscar(n->dir, chave);
+}
+
+public:
+NoABB* buscar(int chave){
+    return buscar(this->raiz, chave);
+}
+
+inserir
+
+// class ABB(privado)
+NoABB* inserir(NoABB* n, int chave, int valor){
+    if(n == nullptr){
+        return new NoABB(chave, valor);
+    }
+    if(n->chave == chave){
+        n->valor = valor;
+    }
+    else{
+        if(chave < n->chave){
+            n->esq = inserir(n->esq, chave, valor);
+        }
+        else{
+            n->dir = inserir(n->dir, chave, valor);
+        }
+    }
+    return n;
+}
+
+public:
+void inserir(int chave, int valor){
+    this->raiz = inserir(this->raiz, chave, valor);
+}
+
+Remoção em ABB
+
+Caso 1: o nó a ser removido falho.
+Basta fazer o ponteiro que apontava para o 
+nó a ser removido aponte para o null. 
+
+Caso 2: o nó a ser removido tem um único filho.
+Basta fazer quem apontava para o nó a ser removido, 
+passe a apontar para o único filho do nó sendo removido.
+
+Caso 3: remoção de um nó com 2 filhos.
+Seja S(n) o nó sucessor de x. Ele pode ser
+encontrado percorrendo os ponteiros à esquerda de n.
+O algorítimo para remover é:
+-> encontrar o nó n a ser removido
+-> S = S(n)
+-> copiar os dados de s sobre n (não copiar os ponteiros)
+-> remover recursivamente S a partir de n -> direita  
