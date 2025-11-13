@@ -3,5 +3,8 @@
     "files.associations": {
         "cstdlib": "cpp",
         "new": "cpp"
-    }
+    },
+    "cSpell.words": [
+        "nullptr"
+    ]
 }

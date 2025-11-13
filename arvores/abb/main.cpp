@@ -52,35 +52,35 @@ void test2(int argc, char** argv){
 }
 
 // testa a inserção e remoção de valores na árvore
-void test3(int argc, char** argv){
+// void test3(int argc, char** argv){
 
-    ABB<int, int> arvore;
+//     ABB<int, int> arvore;
 
-    std::array<int, 8> valores = {10, 5, 15, 3, 7, 12, 17, 1};
+//     std::array<int, 8> valores = {10, 5, 15, 3, 7, 12, 17, 1};
 
-    for(int x : valores){
-        arvore.inserir(x, x);
-    }
+//     for(int x : valores){
+//         arvore.inserir(x, x);
+//     }
 
-    arvore.imprimir();
+//     arvore.imprimir();
 
-    for(int x : valores){
-        std::cout << "Removendo o " << x << std::endl;
-        arvore.remover(x);
-        std::cout << "Após a remoção do " << x << std::endl;
-        arvore.imprimir();
-    }
+//     for(int x : valores){
+//         std::cout << "Removendo o " << x << std::endl;
+//         arvore.remover(x);
+//         std::cout << "Após a remoção do " << x << std::endl;
+//         arvore.imprimir();
+//     }
 
-    for(int x : valores){
-        if(arvore.buscar(x) != nullptr)
-            std::cout << "Erro: " << x << " encontrado" << std::endl;
-    }
-}
+//     for(int x : valores){
+//         if(arvore.buscar(x) != nullptr)
+//             std::cout << "Erro: " << x << " encontrado" << std::endl;
+//     }
+// }
 
 int main(int argc, char** argv){
 
-    test1(argc, argv);
-    // test2(argc, argv);
+    //test1(argc, argv);
+    test2(argc, argv);
     // test3(argc, argv);
 
     return 0;
