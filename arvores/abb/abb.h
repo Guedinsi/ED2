@@ -13,7 +13,12 @@ class NoABB
             : chave(chave), valor(valor), 
             esq(nullptr), dir(nullptr) {}
 
-        ~NoABB(); // destrutor
+        ~NoABB(){
+            if(this != nullptr){
+                delete this->esq;
+                delete this->dir;
+            }
+        } // destrutor
 
         C getChave() { return chave; }
         V& getValor() { return valor; }
@@ -36,8 +41,9 @@ class ABB
         }
 
         ~ABB(){
+            delete raiz;
+        }
             //delete raiz;
-         }
 
         //insere o par (chave, valor) na árvore
         void inserir(C chave, V valor){
@@ -93,12 +99,37 @@ class ABB
         //retorna o endereço do nó com a chave antecessora à chave do nó especificado
         NoABB<C, V>* antecessor(NoABB<C, V>* no);
 
+        int altura(){
+            return alturaRec(this->raiz);
+        }
+
         //retorna o número de nós da árvore
-        int tamanho();
+        int tamanho(){
+            return contarNos(this->raiz);
+        }
         //retorna true se a árvore estiver vazia
         bool vazia();
 
     private:
+
+        int alturaRec(NoABB<C, V>* N){
+            if(N == nullptr){
+                return 0;
+            }
+            int alt_e = altura(N->esq);
+            int alt_d = altura(N->dir);
+            if (alt_e > alt_d){
+                return alt_e + 1;
+            }
+            return alt_d + 1;
+        }
+
+        int contarNos(NoABB<C, V>* N){
+            if(N == nullptr){
+                return 0;
+            }
+            return 1 + contarNos(N->esq) + contarNos(N->dir);
+        }
 
         NoABB<C, V>* 
         inserirNo(NoABB<C, V>* no, C chave, V valor){
